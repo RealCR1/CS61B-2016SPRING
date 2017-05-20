@@ -1,0 +1,39 @@
+public class ClassName {
+   public static int max(int[] m) {
+   	int i = 0;
+   	int a = m[i];
+   	while(i < (m.length)){
+   		
+   		if( a < m[i]){
+   			a = m[i];
+   		}
+   		i = i +1;
+   	}
+   	return a; 
+   	}
+   
+   public static void main(String[] args) {
+      int[] numbers = new int[]{9, 2, 15, 2, 22, 10, 6};
+      
+
+      System.out.println(max(numbers));
+
+   }
+}
+
+public class Triangle{
+	
+	public static void main(String[] args) {
+		makeTriangle();
+			
+	}
+	public static void makeTriangle(){
+		 int i = 0;
+		 String s = "*";
+		while (i <5 ){
+		System.out.println(s);
+			i = i + 1;
+			s = s + "*";
+		}
+	}
+}
