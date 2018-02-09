@@ -4,7 +4,7 @@ public class FindMinimumArray {
 	public static int max(int[] m){
 		int max = m[0];
 		int i = 1;
-		int max_index = Array.length(m) - 1;
+		int max_index = m.length - 1;
 		while (i <= max_index){
 			if (max < m[i]){
 				max = m[i];
