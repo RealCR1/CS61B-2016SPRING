@@ -64,4 +64,27 @@ public class Planet {
 		double fy = f * dy/ r;
 		return fy;
 	}
+
+
+	public double calcNetForceExertedByX(Planet[] plants)
+	{
+		double force_x = 0;
+		for (Planet p: plants)
+		{
+			force_x += calcForceExertedByX(p);
+		}
+		return force_x;
+	}
+
+
+	public double calcNetForceExertedByY(Planet[] plants)
+	{
+		double force_y = 0;
+		for(Planet p: plants)
+		{
+			force_y += calcForceExertedByY(p);
+		}
+		return force_y;
+
+	}
 }
