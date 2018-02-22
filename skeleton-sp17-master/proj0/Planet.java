@@ -1,10 +1,10 @@
 public class Planet {
-	double xxPos;
-	double yyPos;
-	double xxVel;
-	double yyVel;
-	double mass;
-	String imgFileName;
+	public double xxPos;
+	public double yyPos;
+	public double xxVel;
+	public double yyVel;
+	public double mass;
+	public String imgFileName;
 
 	double G_constant = (6.67e-11);
 
@@ -32,6 +32,10 @@ public class Planet {
 	}
 	public double calcForceExertedBy(Planet p)
 	{
+		if (equals(p))
+		{
+			return 0;
+		}
 		double r = calcDistance(p);
 		return G_constant * mass * p.mass / Math.pow(r, 2);
 	}
@@ -39,14 +43,23 @@ public class Planet {
 
 	public double calcForceExertedByX(Planet p)
 	{
-		double dx = xxPos - p.xxPos;
+		double dx = p.xxPos - xxPos;
 		double f = calcForceExertedBy(p);
 		double r = calcDistance(p);
 		double fx = f * dx / r;
 		return fx;
-
-
 	}
+
+
+	public double calcForceExertedByY(Planet p)
+	{
+		double dy = p.yyPos - yyPos;
+		double f = calcForceExertedBy(p);
+		double r = calcDistance(p);
+		double fy = f * dy / r;
+		return fy;
+	}
+
 
 	public double calcDistance(Planet p)
 	{
@@ -56,21 +69,18 @@ public class Planet {
 		return distance;
 	}
 
-	public double calcForceExertedByY(Planet p)
-	{
-		double dy = yyPos - p.yyPos;
-		double f = calcForceExertedBy(p);
-		double r = calcDistance(p);
-		double fy = f * dy/ r;
-		return fy;
-	}
-
+	
 
 	public double calcNetForceExertedByX(Planet[] plants)
 	{
 		double force_x = 0;
 		for (Planet p: plants)
 		{
+			if(equals(p))
+			{
+				continue;
+			}
+
 			force_x += calcForceExertedByX(p);
 		}
 		return force_x;
@@ -82,6 +92,11 @@ public class Planet {
 		double force_y = 0;
 		for(Planet p: plants)
 		{
+			if(equals(p))
+			{
+				continue;
+			}
+
 			force_y += calcForceExertedByY(p);
 		}
 		return force_y;
