@@ -102,4 +102,24 @@ public class Planet {
 		return force_y;
 
 	}
+
+
+	public void update(double dt, double fX,double fY)
+	{
+		double netForceByX = calcAcceleration(fX);
+		double netForceByY = calcAcceleration(fY);
+		xxVel += netForceByX * dt;
+		yyVel += netForceByY * dt;
+		xxPos += xxVel * dt;
+		yyPos += yyVel * dt;
+
+
+
+
+	}
+
+	public double calcAcceleration(double f)
+	{
+		return f / mass;
+	}
 }
