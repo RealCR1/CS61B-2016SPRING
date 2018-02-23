@@ -7,6 +7,19 @@ public class NBody {
 	}
 
 
+	public static Planet readPlanet(In in)
+	{
+		double xPos = in.readDouble();
+		double yPos = in.readDouble();
+		double yVel = in.readDouble();
+		double xVel = in.readDouble();
+		double mass = in.readDouble();
+
+		String imgFileName = in.readString();
+
+		return new Planet(xPos, yPos, xVel, yVel, mass, imgFileName);
+	}
+
 	public static Planet[] readPlanets(String filename)
 	{
 		In in = new In(filename);
@@ -15,7 +28,7 @@ public class NBody {
 		Planet[] planets = new Planet[planet_length];
 		for(int i = 0; i < planet_length; i++)
 		{
-			planets[i] = readPlanets(in);
+			planets[i] = readPlanet(in);
 		}
 
 		return planets
