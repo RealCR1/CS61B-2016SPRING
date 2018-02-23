@@ -7,6 +7,19 @@ public class NBody {
 	}
 
 
+	public static Planet[] readPlanets(String filename)
+	{
+		In in = new In(filename);
+		int planet_length = In.readInt();
+
+		Planet[] planets = new Planet[planet_length];
+		for(int i = 0; i < planet_length; i++)
+		{
+			planets[i] = readPlanets(in);
+		}
+
+		return planets
+	}
 
 
 	public static void main(String[] args) {
