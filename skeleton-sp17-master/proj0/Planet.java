@@ -122,4 +122,6 @@ public class Planet {
 	{
 		return f / mass;
 	}
+
+
 }
