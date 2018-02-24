@@ -124,4 +124,9 @@ public class Planet {
 	}
 
 
+	public static void draw()
+	{
+		StdDraw.picture(xxPos, yyPos, imgFileName);
+
+	}
 }
