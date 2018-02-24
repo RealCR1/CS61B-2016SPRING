@@ -23,7 +23,7 @@ public class NBody {
 	public static Planet[] readPlanets(String filename)
 	{
 		In in = new In(filename);
-		int planet_length = In.readInt();
+		int planet_length = In.readInt(); // return the numbers of planet.
 
 		Planet[] planets = new Planet[planet_length];
 		for(int i = 0; i < planet_length; i++)
@@ -38,14 +38,29 @@ public class NBody {
 	public static void main(String[] args) {
 		double T = double.parseDouble(args[0]);
 		double dt = double.parseDouble(args[1]);
+
 		String filename = args[2];
 
 		Planet[] plants = readPlanets(filename);
 		double radius = readRadius(filename);
 
-
+		drawBackground(radius);
 
 	}
+
+
+	public static void drawBackground(double radius)
+	{
+		public String background = 'images/starfield.jpg';
+		StdDraw.setScale(-radius, radius);
+		StdDraw.picture(0, 0, background);
+
+	}
+
+
+
+
+
 
 
 }
