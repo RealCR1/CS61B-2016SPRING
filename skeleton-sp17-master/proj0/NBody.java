@@ -46,6 +46,46 @@ public class NBody {
 
 		drawBackground(radius);
 
+		drawPlants(plants);
+
+		StdDraw.show(1000);
+
+		for(int t = 0; t < T; t++)
+		{
+			double[] xForces = new double[plants.length];
+			double[] yForces = new double[plants.length];
+
+			for(int i = 0; i < plants.length; i++)
+			{
+				xForces[i] = plants[i].calcForceExertedByX(plants);
+				yForces[i] = plants[i].calcForceExertedByY(plants);
+			}
+
+			for(int i = 0; i < plants.length; i++)
+			{
+				plants[i].update(dt, xForces[i], yForces[i]);
+
+			}
+
+			drawBackground(radius);
+			drawPlants(plants);
+			StdDraw.show(10);
+
+			t += dt;
+
+			StdOut.printf("%d\n", planets.length);
+			StdOut.printf("%.2e\n", radius);
+
+
+			for(int i = 0; i < planets.length; i++)
+			{
+				StdOut.printf("%11.4e %11.4e %11.4e %11.4e %11.4e %12s\n", planets[i].xxPos,
+					planets[i].yyPos, planets[i].xxVel, planets[i].yyVel, planets[i].mass,
+					planets[i].imgFileName);
+			}
+		}
+
+
 	}
 
 
@@ -58,9 +98,12 @@ public class NBody {
 	}
 
 
-
-
-
-
+	public static void drawPlants(Planet[] plants)
+	{
+		for (Planet p : plants)
+		{
+			p.draw(); //Using the method defined in Planet.java 
+		}
+	}
 
 }
