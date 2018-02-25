@@ -33,7 +33,16 @@ public class codeDemo {
 		}
 		return totalSize;
 
+	}
 
+
+	public int get(int i)
+	{
+		if(i == 0)
+		{
+			return first;
+		}
+		return rest.get(i-1);
 	}
 
 
