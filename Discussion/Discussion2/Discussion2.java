@@ -38,3 +38,37 @@ This is non-destructive way.
 		return LSquared;
 
 	}
+
+
+/*
+Destructive way.
+*/
+
+	//Using recursive way.
+	public static IntList squareMutative(IntList L)
+	{
+		if (L == null)
+		{
+			return L;
+		}
+		else
+		{
+			L.first = L.first * L.first;
+			squareMutative(L.rest);
+		}
+		return L;
+	}
+
+	//Using iteration.
+	public static IntList squareMutative(IntList L)
+	{
+		IntList B = L;
+		while(B != null)
+		{
+			B.first *= B.first;
+			B = B.rest;
+		}
+		return L;
+	}
+
+
