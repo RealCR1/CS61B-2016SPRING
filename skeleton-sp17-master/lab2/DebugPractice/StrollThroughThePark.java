@@ -11,5 +11,4 @@ public class StrollThroughThePark extends Trial {
         treasureChest(cal);
         cal.endJourney();
     }
-
 }
