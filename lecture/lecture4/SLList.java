@@ -51,10 +51,37 @@ public class SLList {
 		p.next = new IntNode(x, null);
 	}
 
+	/** Returns the size of the list theat starts at IntNode p.
+	And this is a helper method.
+	*/
+	private static int size(IntNode p){
+		if(p.next == null){
+			return 1;
+		}
+		return 1 + size(p.next);
+	}
+
+	public int size(){
+		/*int i = 1;
+		IntNode q = first;
+		if(p == null){
+			return 0;
+		}
+		while(p.next != null){
+			i += 1;
+		}
+		return 1 + i;*/
+		return size(first);
+	}
+
+
+
+
 	public static void main(String[] args){
 		SLList L = new SLList(15); //There is no need to specify null.
 		L.addFirst(10);
 		L.addFirst(5);
+		L.size();
 		System.out.println(L.getFirst());
 	}	
 }
