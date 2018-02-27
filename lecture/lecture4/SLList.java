@@ -10,8 +10,10 @@ public class SLList {
 */
 
 	//Using 'static' is good for saving memory. 
-	// It won't get access to outer class's instance.
+	// It won't get access to outer class's instances.
+
 	// Using 'private' is to make no access from outer class.
+
 	private static class IntNode {
 		//Just like IntList's structure.
 		public int item;
@@ -26,6 +28,7 @@ public class SLList {
 	/* The first element (if it exists) is at sentinal.next.*/
 	private IntNode sentinal;
 	private int size;
+	private IntNode last;
 
 
 /*	In this constructor, instantiate and create a new SLList which contains x as its first element.
@@ -48,8 +51,8 @@ public class SLList {
 
 	/** Adds x to the front of the list. */
 	public void addFirst(int x){
-		 sentinal.next = new IntNode(x, sentinal.next);
-		 size += 1;
+		sentinal.next = new IntNode(x, sentinal.next);
+		size += 1;
 	}
 
 	/** Return the first element in the list. */
@@ -59,21 +62,19 @@ public class SLList {
 
 
 	public void addLast(int x){
-		if(first == null){
-			first = new IntNode(x, null);	
-		}
-		else{
+		/*IntNode p = sentinal;
 
-			IntNode p = first;
+		while(p.next != null){
+			p = p.next;
+			}
+		p.next = new IntNode(x, null);
 
-			while(p.next != null){
-				p = p.next;
-				}
-			p.next = new IntNode(x, null);
+		size += 1;
+		}*/
 
-			size += 1;
-		}
-
+		last.next = new IntNode(x, null);
+		last = last.next;
+		size += 1;
 		/*
 		if(first == null)
 			return;
