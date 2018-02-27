@@ -23,7 +23,8 @@ public class SLList {
 		}
 	}
 
-	public IntNode first;
+	/* The first element (if it exists) is at sentinal.next.*/
+	private IntNode sentinal;
 	private int size;
 
 
@@ -34,20 +35,26 @@ public class SLList {
 		size = 1;
 	}*/
 	public SLList(){
-		first = null;
+		sentinal = new IntNode(61, null);
 		size = 0;
+	}
+
+	public SLList(int x){
+		sentinal = new IntNode(61, null);
+		sentinal.next = new IntNode(x, null);
+		size = 1;
 	}
 
 
 	/** Adds x to the front of the list. */
 	public void addFirst(int x){
-		 first = new IntNode(x, first);
+		 sentinal.next = new IntNode(x, sentinal.next);
 		 size += 1;
 	}
 
 	/** Return the first element in the list. */
 	public int getFirst(){
-		return first.item;
+		return sentinal.next.item;
 	}
 
 
@@ -66,6 +73,18 @@ public class SLList {
 
 			size += 1;
 		}
+
+		/*
+		if(first == null)
+			return;
+		IntNode p = first;
+		while(p.next != null){
+			p = p.next;
+			}
+		p.next = new IntNode(x, null);
+
+		size += 1;
+		*/
 	}
 
 
