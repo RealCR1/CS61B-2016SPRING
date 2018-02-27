@@ -13,7 +13,7 @@ public class SLList {
 	// It won't get access to outer class's instance.
 	// Using 'private' is to make no access from outer class.
 	private static class IntNode {
-	
+		//Just like IntList's structure.
 		public int item;
 		public IntNode next;
 
@@ -24,16 +24,25 @@ public class SLList {
 	}
 
 	public IntNode first;
+	private int size;
 
+
+/*	In this constructor, instantiate and create a new SLList which contains x as its first element.
 
 	public SLList(int x){
 		first = new IntNode(x, null);
+		size = 1;
+	}*/
+	public SLList(){
+		first = null;
+		size = 0;
 	}
 
 
 	/** Adds x to the front of the list. */
 	public void addFirst(int x){
 		 first = new IntNode(x, first);
+		 size += 1;
 	}
 
 	/** Return the first element in the list. */
@@ -43,24 +52,27 @@ public class SLList {
 
 
 	public void addLast(int x){
-		IntNode p = first;
-
-		while(p.next != null){
-			p = p.next;
+		if(first == null){
+			first = new IntNode(x, null);	
 		}
-		p.next = new IntNode(x, null);
+		else{
+
+			IntNode p = first;
+
+			while(p.next != null){
+				p = p.next;
+				}
+			p.next = new IntNode(x, null);
+
+			size += 1;
+		}
 	}
+
 
 	/** Returns the size of the list theat starts at IntNode p.
-	And this is a helper method.
+	And this is a helper method that interacts with the underlying naked recursive data structure.
 	*/
-	private static int size(IntNode p){
-		if(p.next == null){
-			return 1;
-		}
-		return 1 + size(p.next);
-	}
-
+	
 	public int size(){
 		/*int i = 1;
 		IntNode q = first;
@@ -71,17 +83,17 @@ public class SLList {
 			i += 1;
 		}
 		return 1 + i;*/
-		return size(first);
+		return size;
 	}
 
 
 
 
 	public static void main(String[] args){
-		SLList L = new SLList(15); //There is no need to specify null.
-		L.addFirst(10);
-		L.addFirst(5);
+		SLList L = new SLList(); //There is no need to specify null.
+
+		L.addLast(20);
 		L.size();
-		System.out.println(L.getFirst());
+		System.out.println(L.size());
 	}	
 }
