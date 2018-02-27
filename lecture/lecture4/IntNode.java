@@ -11,6 +11,6 @@ public class IntNode {
 
 
 	public static void main(String[] args){
-		
+		first = new IntNode(x, first);
 	}	
 }

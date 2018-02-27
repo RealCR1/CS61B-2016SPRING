@@ -59,10 +59,11 @@ Destructive way.
 		return L;
 	}
 
+
 	//Using iteration.
 	public static IntList squareMutative(IntList L)
 	{
-		IntList B = L;
+		IntList B = L;.0....
 		while(B != null)
 		{
 			B.first *= B.first;

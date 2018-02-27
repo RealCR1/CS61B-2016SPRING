@@ -95,6 +95,25 @@ public class NBody {
 
 
 	private static void drawBackground(double radius)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	 
 	{
 		String background = "starfield.jpg";
 		StdDraw.setScale(-radius, radius);

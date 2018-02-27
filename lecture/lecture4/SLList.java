@@ -4,9 +4,15 @@
 public class SLList {
 	
 
-/** A nested class. */
+/** A nested class. 
+*A nested class has no meaningful usage for code performance.
+*Just for well-organized in code.
+*/
 
-	public class IntNode {
+	//Using 'static' is good for saving memory. 
+	// It won't get access to outer class's instance.
+	// Using 'private' is to make no access from outer class.
+	private static class IntNode {
 	
 		public int item;
 		public IntNode next;
@@ -14,10 +20,12 @@ public class SLList {
 		public IntNode(int i, IntNode n){
 			item = i;
 			next = n;
+		}
 	}
 
-
 	public IntNode first;
+
+
 	public SLList(int x){
 		first = new IntNode(x, null);
 	}
@@ -32,9 +40,21 @@ public class SLList {
 	public int getFirst(){
 		return first.item;
 	}
-}
+
+
+	public void addLast(int x){
+		IntNode p = first;
+
+		while(p.next != null){
+			p = p.next;
+		}
+		p.next = new IntNode(x, null);
+	}
 
 	public static void main(String[] args){
-		SLList L = new SLList(10); //There is no need to specify null.
+		SLList L = new SLList(15); //There is no need to specify null.
+		L.addFirst(10);
+		L.addFirst(5);
+		System.out.println(L.getFirst());
 	}	
-
+}
