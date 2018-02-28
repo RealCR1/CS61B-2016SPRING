@@ -99,6 +99,25 @@ public class LinkedListDeque<Item>{
     //1 is the next item, and so forth.
     //If no such item exists, returns null.
     //Must not alter the Deque.
+    public Item get(int index){
+        if(this.size() == 0){
+            return null;
+        }
+        else{
+            Node p = this.sentinal.next;
+            while(index != 0){
+                if(p.next == this.sentinal){
+                    return null;
+                }
+                p = p.next;
+                index -= 1;
+            }
+            return p.item;
+        }
+    }
+
+
+    //
 
 
 }
