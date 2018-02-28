@@ -1,44 +1,44 @@
-public class LinkedListDeque{
+public class LinkedListDeque<Item>{
 
-    //Using the normal way, instantiate nested class IntNode.
-    private class IntNode{
-        private int item;
+    //Using the normal way, instantiate nested class Node.
+    private class Node{
+        private Item item;
         //Make a circular LinkedList.
-        private IntNode pre, next;
+        private Node pre, next;
 
         //Class constructor.
-        public IntNode(int i, IntNode p, IntNode n){
-            item = i;
-            pre = p;
-            nex;
+        public Node(Item i, Node p, Node n){
+            this.item = i;
+            this.pre = p;
+            this.next = n;
         }
     }
 
-    private IntNode sentinal;
-    private IntNode last;
+    private Node sentinal;
+    private Node last;
     private int size = 0;
 
 
     //Create an empty linked list.
     public LinkedListDeque(){
-        this.sentinal = new IntNode(null, null, null );
+        this.sentinal = new Node(null, null, null );
         this.sentinal.next = this.sentinal;
         this.sentinal.pre = this.sentinal;
     }
 
 
     //Adds an item to the front of the Deque.
-    public void addFirst(int x){
-        this.sentinal.next = new IntNode(x, this.sentinal.next, this.sentinal.next);
-        this.sentinal.next.pre = new IntNode(x, this.sentinal.next, this.sentinal.next);
+    public void addFirst(Item item){
+        this.sentinal.next = new Node(item, this.sentinal.next, this.sentinal.next);
+        this.sentinal.next.pre = new Node(item, this.sentinal.next, this.sentinal.next);
         size += 1;
     }
 
 
     //Adds an item to the back of the Deque.
-    public void addLast(int x){
-        sentinal.pre.next = new IntNode(x, this.sentinal, this.sentinal.pre);
-        sentinal.pre = new IntNode(x, this.sentinal, this.sentinal.pre);
+    public void addLast(Item item){
+        sentinal.pre.next = new Node(item, this.sentinal, this.sentinal.pre);
+        sentinal.pre = new Node(item, this.sentinal, this.sentinal.pre);
         size += 1;
 
     }
@@ -60,7 +60,7 @@ public class LinkedListDeque{
     //Prints the items in the Deque form first to last.
     //Separated by a space.
     public void printDeque(){
-        IntNode p = this.sentinal.next;
+        Node p = this.sentinal.next;
         while(true){
             System.out.print(p.item + ' ');
             if(p == sentinal.pre){
@@ -70,5 +70,35 @@ public class LinkedListDeque{
         }
 
     }
+
+
+    //Removes and returns the item at the front of the Deque.
+    //If no such item exists, returns null.
+    public Item removeFirst(){
+        if(sentinal.next == null){
+            return null;
+        }
+        Item item = sentinal.next.item;
+        sentinal.next = sentinal.next.next;
+        size -= 1;
+        return item;
+    }
+
+
+    //Removes and returns the item at the back of the Deque.
+    //If no such item exists, returns null.
+    public Item removeLast(){
+        Item item = (Item)last.item;
+        last = last.pre;
+        last.next = sentinal;
+        size -= 1;
+    }
+
+
+    //Gets the item at the given index, where 0 is the front.
+    //1 is the next item, and so forth.
+    //If no such item exists, returns null.
+    //Must not alter the Deque.
+
 
 }
