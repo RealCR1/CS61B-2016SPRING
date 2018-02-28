@@ -19,7 +19,7 @@ public class Array {
 		s[x[3] - x[1]] = "muffins";
 
 		int[] b = {9, 10, 11};
-		
+
 		System.arraycopy(b, 0, x, 3, 2);
 		
 	}	
