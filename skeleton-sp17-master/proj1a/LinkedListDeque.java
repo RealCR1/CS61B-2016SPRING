@@ -117,7 +117,27 @@ public class LinkedListDeque<Item>{
     }
 
 
-    //
+    //Same as get, but uses recursion.
+    //Also non-destructive method.
+    public Item getRecursive(int index){
+        if(index == 0){
+            return this.sentinal.next.item;
+        }
+        Node p = this.sentinal.next;
+        return helper(index, p);
 
+
+
+    }
+
+    private Item helper(int index, Node p){
+        if(index == 0){
+            return p.item;
+        }
+        else{
+            p = p.next;
+            return helper(index - 1; p);
+        }
+    }
 
 }
