@@ -10,7 +10,7 @@ public class LinkedListDeque{
         public IntNode(int i, IntNode p, IntNode n){
             item = i;
             pre = p;
-            next = n;
+            nex;
         }
     }
 
@@ -32,12 +32,14 @@ public class LinkedListDeque{
         this.sentinal.next = new IntNode(x, this.sentinal.next, this.sentinal.next);
         this.sentinal.next.pre = new IntNode(x, this.sentinal.next, this.sentinal.next);
         size += 1;
-
     }
 
 
     //Adds an item to the back of the Deque.
     public void addLast(int x){
+        sentinal.pre.next = new IntNode(x, this.sentinal, this.sentinal.pre);
+        sentinal.pre = new IntNode(x, this.sentinal, this.sentinal.pre);
+        size += 1;
 
     }
 
@@ -48,7 +50,7 @@ public class LinkedListDeque{
     }
 
 
-    
+
     //Returns True if Deque is empty, false otherwise.
     public boolean isEmpty(){
         return size == 0;
