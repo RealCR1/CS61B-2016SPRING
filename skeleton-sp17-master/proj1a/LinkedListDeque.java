@@ -56,4 +56,19 @@ public class LinkedListDeque{
         return size == 0;
     }
 
+
+    //Prints the items in the Deque form first to last.
+    //Separated by a space.
+    public void printDeque(){
+        IntNode p = this.sentinal.next;
+        while(true){
+            System.out.print(p.item + ' ');
+            if(p == sentinal.pre){
+                break;
+            }
+            p = p.next;
+        }
+
+    }
+
 }
