@@ -51,6 +51,21 @@ public class ArrayDeque<Item> {
     }
 
 
+    //Adds an item to the back of the Deque.
+    public void addLast(Item item){
+        if(item = null){
+            throw new NullPointerException();
+        }
+        arr[nextLast] = item;
+        nextLast = (nextLast + 1) % (this.arr.length - 1);
+        size += 1;
+        if(size == arr.length){
+            this.resize(arr.length * 2);
+        }
+
+    }
+
+
     //Implementation of a helper method resize().
     public void resize(int full_number){
         int n = arr.length;
@@ -64,7 +79,10 @@ public class ArrayDeque<Item> {
         nextFirst = full_number - 1;
         nextLast = n;
     }
-    
+
+
+
+
 
 
 

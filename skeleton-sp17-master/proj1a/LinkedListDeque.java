@@ -37,8 +37,8 @@ public class LinkedListDeque<Item>{
 
     //Adds an item to the back of the Deque.
     public void addLast(Item item){
-        sentinal.pre.next = new Node(item, this.sentinal, this.sentinal.pre);
-        sentinal.pre = new Node(item, this.sentinal, this.sentinal.pre);
+        this.sentinal.pre.next = new Node(item, this.sentinal, this.sentinal.pre);
+        this.sentinal.pre = new Node(item, this.sentinal, this.sentinal.pre);
         size += 1;
 
     }
@@ -62,7 +62,7 @@ public class LinkedListDeque<Item>{
     public void printDeque(){
         Node p = this.sentinal.next;
         while(true){
-            System.out.print(p.item + ' ');
+            System.out.print(p.item + " ");
             if(p == sentinal.pre){
                 break;
             }
@@ -92,6 +92,7 @@ public class LinkedListDeque<Item>{
         last = last.pre;
         last.next = sentinal;
         size -= 1;
+        return item;
     }
 
 
@@ -136,7 +137,7 @@ public class LinkedListDeque<Item>{
         }
         else{
             p = p.next;
-            return helper(index - 1; p);
+            return helper(index - 1, p);
         }
     }
 
