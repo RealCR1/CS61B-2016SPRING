@@ -32,7 +32,40 @@ public class ArrayDeque<Item> {
     //This method will add a item as the first element in ArrayDeque.
     //The front pointer should loop back around to the end of the array.
     //So a circular array is a good idea.
+    public void addFirst(Item item){
+        if(item == null){
+            throw new NullPointerException();
+        }
+        arr[nextFirst] = item;
+        if(this.nextFirst == 0){
+            nextFirst = this.arr.length - 1;
+        }
+        else{
+            this.nextFirst -= 1;
+        }
+
+        size += 1;
+        if(size == arr.length){
+            this.resize(arr.length * 2);
+        }
+    }
+
+
+    //Implementation of a helper method resize().
+    public void resize(int full_number){
+        int n = arr.length;
+        Item[] new_arr = (Item[]) new Object[full_number];
+        int pointer = 0;
+        while(arr[pointer] == null){
+            pointer += 1;
+        }
+        System.arraycopy(this.arr, pointer, new_arr, 0, size);
+        arr = new_arr;
+        nextFirst = full_number - 1;
+        nextLast = n;
+    }
     
+
 
 
 
