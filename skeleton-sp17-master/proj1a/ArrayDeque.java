@@ -19,13 +19,13 @@ public class ArrayDeque<Item> {
 
     //And how to declare the size of the ArrayDeque.
     //I don't know. Learning from other's code.
-    private static final int MIN_INITIAL_CAPACITY = 8;
+    private static final int INITIAL_CAPACITY = 8;
 
 
     //Try to create an ArrayDeque class constructor which has zero argument.
     //This will create an empty Deque.
     public ArrayDeque(){
-        arr = (Item[]) new Object[MIN_INITIAL_CAPACITY];
+        arr = (Item[]) new Object[INITIAL_CAPACITY];
 
     }
 
@@ -53,7 +53,7 @@ public class ArrayDeque<Item> {
 
     //Adds an item to the back of the Deque.
     public void addLast(Item item){
-        if(item = null){
+        if(item == null){
             throw new NullPointerException();
         }
         arr[nextLast] = item;
@@ -78,6 +78,62 @@ public class ArrayDeque<Item> {
         arr = new_arr;
         nextFirst = full_number - 1;
         nextLast = n;
+    }
+
+    //Return the size of this ArrayDeque.
+    public int size(){
+        return size;
+    }
+
+
+    //Return True if ArrayDeque isn't empty.
+    public boolean isEmpty(){
+        return size == 0;
+    }
+
+
+    //Prints the items in the Deque.
+
+
+    //Removes and returns the first item of the Deque.
+    public Item removeFirst(){
+        if(size = 0){
+            return null;
+        }
+        Item item;
+        if(nextFirst == arr.length - 1){
+            item = (Item)arr[0];
+            arr[0] = null;
+            nextFirst = 0;
+        }
+        else{
+            item = (Item) arr[nextFirst + 1];
+            arr[nextFirst + 1] = null;
+            nextFirst += 1;
+        }
+        size -= 1;
+        return item;
+    }
+
+
+    //Removes and returns the item at the back of the Deque.
+    public Item removeLast(){
+        if(size == 0){
+            return null;
+        }
+        Item item;
+        if(nextLast == 0){
+            item = (Item) arr[arr.length - 1];
+            arr[arr.length - 1] = null;
+            nextLast = arr.length - 1;
+        }
+        else{
+            item = (Item) arr[nextLast - 1];
+            arr[nextLast - 1] = null;
+            nextLast -= 1;
+        }
+        size -= 1;
+        return item;
     }
 
 
