@@ -49,7 +49,7 @@ public class AList {
 */
         int x = getLast();
         size -= 1;
-        return x;
+        return x
 
     }
 } 
