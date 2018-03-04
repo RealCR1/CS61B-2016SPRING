@@ -36,4 +36,23 @@ public class SList {
 		node.next = newNode;
 
 	}
+
+
+	public void reverse(){
+		IntNode currentNode = null;
+		IntNode nextToAddNode = first;
+
+		while(nextToAddNode != null){
+			IntNode remainderOfOriginalNode = nextToAddNode.next;
+			nextToAddNode.next = currentNode;
+			currentNode = nextToAddNode;
+			nextToAddNode = remainderOfOriginalNode;
+
+		}
+
+		first = currentNode;
+	}
+
+
+	
 }
