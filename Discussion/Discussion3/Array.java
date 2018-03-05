@@ -14,13 +14,22 @@ public class Array {
 	public static int[] insert(int[] x, int item, int position){
 		int[] newArray = new int[x.length + 1];
 		int i = 0;
+
+		/*In modern way, we just use the following way.
+		*System.arraycopy(x, 0, newArray, 0, position);
+		*/
+
 		while(i < position){
 			newArray[i] = x[i];
 			i += 1;
 		}
-		
+
 		newArray[position] = item;
 
+
+		/*In modern way, we just use the following way.
+		*System.arraycopy(x, position, newArray, position + 1, x.length - position);
+		*/
 		int n = position + 1;
 		while(n <= x.length + 1){
 			newArray[n] = x[n - 1];
