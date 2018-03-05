@@ -40,6 +40,19 @@ public class Array {
 	}
 
 
+	public static void reverse(int[] x){
+		for(int i = 0; i < x.length / 2; i++){
+			//Try to initiate a integer to keep track of the item from last to i.
+			int j = x.length - i - 1;
+			//In order to keep item safe, copy it to a new array.
+			int copy = x[i];
+			x[i] = x[j];
+			x[j] = copy;
+
+		}
+	}
+
+
 
 	public static void main(String[] args){
 		
