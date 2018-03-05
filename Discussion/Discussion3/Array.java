@@ -53,6 +53,31 @@ public class Array {
 	}
 
 
+	//An non-destructive method.
+	//Replaces the number at index i with x[i] copies of itself.
+	//For example, xify([3, 2, 1]) would return [3, 3, 3, 2, 2, 1].
+	public static int[] xify(int[] x){
+		//Size of array is unchangable, so get a state number.
+		//Try to get the length of array.
+		int size = 0;
+		for(int item : x){
+			size += item;
+		}
+
+		//Instantiate a new array that suits this new method's size well.
+		int newArrayX = new int[size];
+
+		int i = 0;
+		for(int item : x){
+			for(int n = 0; n < item; n++){
+				newArrayX[i] = item;
+				i += 1;
+			}
+		}
+		return newArrayX;
+
+	}
+
 
 	public static void main(String[] args){
 		

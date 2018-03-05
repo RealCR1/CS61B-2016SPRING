@@ -72,6 +72,7 @@ public class SList {
 			}
 			else{
 				//Reverse the node except the front node itself.
+				//Try to get to the last one.
 				IntNode remainNode = reverseHelper(front.next);
 				
 				//In the process of reverse, the front.next is the last one to reverse.
@@ -80,7 +81,7 @@ public class SList {
 				
 				//Now the front is the last item, so the next pointer should be null.
 				front.next = null;
-				
+
 				return remainNode;
 			}
 		}
