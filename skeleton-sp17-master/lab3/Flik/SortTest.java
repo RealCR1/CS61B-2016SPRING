@@ -8,12 +8,16 @@ public class SortTest {
 
         Sort.sort(input);
 
+        org.junit.Assert.assertEquals(expected, input);
+
+        /* Just as same as code.
+            This tedious code is bad.
         for(int i = 0; i < input.length; i++){
             if(!input[i].equals(expected[i])){
                 System.out.println("Mismatch in position" + i + ", we expected to have " + expected[i] + ", " +
                         "but we get " + input[i]);
             }
-        }
+        }*/
 
         //Because '!=' checked whether two objects point to the same instance.
         if(!java.util.Arrays.equals(input, expected)){
@@ -22,7 +26,28 @@ public class SortTest {
         }
     }
 
+    /* Test the Sort.findSmallest method.*/
+    public static void testFindSmallest(){
+        String[] input = {"I", "have", "an", "egg"};
+        String[] expected = {"an"};
+
+        String actual = Sort.findSmallest(input);
+
+
+        org.junit.Assert.assertEquals(expected, input);
+
+        /* Just as same as code.
+            This tedious code is bad.
+        for(int i = 0; i < input.length; i++){
+            if(!input[i].equals(expected[i])){
+                System.out.println("Mismatch in position" + i + ", we expected to have " + expected[i] + ", " +
+                        "but we get " + input[i]);
+            }
+        }*/
+
+    }
+
     public static void main(String[] args){
-        sortTest();
+        testFindSmallest();
     }
 }
