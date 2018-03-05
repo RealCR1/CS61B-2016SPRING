@@ -59,5 +59,33 @@ public class SList {
 		}
 
 
+		//Using the recursive way to accomplish 'reverse' method.
+		public void reverse(){
+			first = reverseHelper(first);
+		}
+
+
+		//A helper method of reverse().
+		public IntNode reverseHelper(IntNode front){
+			if(front == null || front.next == null){
+				retrun front;
+			}
+			else{
+				//Reverse the node except the front node itself.
+				IntNode remainNode = reverseHelper(front.next);
+				
+				//In the process of reverse, the front.next is the last one to reverse.
+				//So in the reverse frame, the next item of front.next(front.next.next) is the front. 
+				front.next.next = front;
+				
+				//Now the front is the last item, so the next pointer should be null.
+				front.next = null;
+				
+				return remainNode;
+			}
+		}
+
+
+
 
 }
