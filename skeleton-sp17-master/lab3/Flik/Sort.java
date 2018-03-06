@@ -1,24 +1,5 @@
 public class Sort {
 
-
-    /** Return the smallest String in x. */
-    public static String findSmallest(String[] x){
-        int smallestIndex = 0;
-        for(int i = 0; i < x.length - 1; i++){
-            int compresult = x[i].compareTo(x[smallestIndex]);
-            if(compresult == -1){
-                smallestIndex = i;
-            }
-        }
-        return x[smallestIndex];
-
-    }
-
-
-
-
-
-
     /*Sorts strings destructively.*/
     public static void sort(String[] x){
         sort(x, 0);
@@ -40,6 +21,7 @@ public class Sort {
 	    x[a] = x[b];
 	    x[b] = temp;
     }
+    
 
 	/** Return the index of the smallest String in x, starting at start. */
 	public static int findSmallest(String[] x, int start) {

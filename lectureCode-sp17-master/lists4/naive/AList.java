@@ -27,16 +27,20 @@ public class AList {
       Easy to read.
       */
     private void resize(int capacity){
+        /* This way preform badly.
         int[] a = new int[size + 1];
         System.arraycopy(items, 0, a, size);
         items = a;
+        */
+
+
     }
-    
+
 
     /** Inserts X into the back of the list. */
     public void addLast(int x) {
         if(size == items.length){
-            resize(size + 1);
+            resize(size * refactor);
         }
         items[size] = x;
         size = size + 1;
