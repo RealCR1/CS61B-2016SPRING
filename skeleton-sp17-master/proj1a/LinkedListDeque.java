@@ -104,7 +104,7 @@ public class LinkedListDeque<Item>{
     //If no such item exists, returns null.
     //Must not alter the Deque.
     public Item get(int index){
-        if(this.size() == 0){
+        if(sentinal.next == null){
             return null;
         }
         else{
@@ -113,11 +113,13 @@ public class LinkedListDeque<Item>{
                 if(p.next == this.sentinal){
                     return null;
                 }
+
                 p = p.next;
                 index -= 1;
             }
             return p.item;
         }
+
     }
 
 
@@ -129,10 +131,8 @@ public class LinkedListDeque<Item>{
         }
         Node p = this.sentinal.next;
         return helper(index, p);
-
-
-
     }
+
 
     private Item helper(int index, Node p){
         if(index == 0){
