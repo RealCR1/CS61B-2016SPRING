@@ -62,14 +62,16 @@ public class LinkedListDeque<Item>{
     public void printDeque(){
         Node p = this.sentinal.next;
         while(true){
-            System.out.print(p.item + " ");
+            System.out.println(p.item + " ");
             if(p == sentinal.pre){
                 break;
             }
             p = p.next;
-        }
 
+        }
     }
+
+
 
 
     //Removes and returns the item at the front of the Deque.
@@ -78,6 +80,7 @@ public class LinkedListDeque<Item>{
         if(sentinal.next == null){
             return null;
         }
+
         Item item = sentinal.next.item;
         sentinal.next = sentinal.next.next;
         size -= 1;
@@ -91,8 +94,8 @@ public class LinkedListDeque<Item>{
         Item item = (Item)last.item;
         last = last.pre;
         last.next = sentinal;
-        size -= 1;
         return item;
+        
     }
 
 
