@@ -1,6 +1,8 @@
 import static org.junit.Assert.*;
 import org.junit.Test;
+//These imports are what give you easy access to the JUnit method.
 
+//All tests must be non-static.
 public class ArithmeticTest {
 
     /** Performs a few arbitrary tests to see if the product method is correct */
