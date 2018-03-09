@@ -24,15 +24,11 @@ public class ArrayDeque<Item> {
 
     //Try to create an ArrayDeque class constructor which has zero argument.
     //This will create an empty Deque.
-    public ArrayDeque() {
-        arr = (Item[]) new Object[INITIAL_CAPACITY];
-
+    public ArrayDeque(){
+        arr = (Item) new object[INITIAL_CAPACITY];
     }
 
-    //This method will add a item as the first element in ArrayDeque.
-    //The front pointer should loop back around to the end of the array.
-    //So a circular array is a good idea.
-    public void addFirst(Item item) {
+        public void addFirst(Item item) {
         if (item == null) {
             throw new NullPointerException();
         }
@@ -50,14 +46,52 @@ public class ArrayDeque<Item> {
     }
 
 
+    //This method will add a item as the first element in ArrayDeque.
+    //The front pointer should loop back around to the end of the array.
+    //So a circular array is a good idea.
+    public void addFirst(Item item){
+        //If item equals to null, there is nothing designate to pointer.
+        //So occur an new NullPointerException() error.
+        if (item == null){
+            throw new NullPointerException();
+        }
+        //Adding the item to the first of the array.
+        arr[nextFirst] = item;
+        //Becasue we should resign the two pointer 'nextFirst' and 'nextLast'
+        //after the adding action.
+
+        //
+        if(this.nextFirst == 0){
+            //Set the nextFirst pointer to the last index.
+            nextFirst = this.arr.length - 1;
+        }
+        else{
+            //The normal way.
+            this.nextFirst -= 1;
+        }
+        size += 1;
+        //To check the size.
+        //if it is full, double the size.
+        if(size == arr.length){
+            this.resize(arr.length * 2);
+        }
+
+    }
+
+
     //Adds an item to the back of the Deque.
     public void addLast(Item item) {
         if (item == null) {
             throw new NullPointerException();
         }
+        //Add the item to the present nextLast pointer.
         arr[nextLast] = item;
+        //
         nextLast = (nextLast + 1) % (this.arr.length - 1);
+        
         size += 1;
+        //To check the size.
+        //if it is full, double the size.
         if (size == arr.length) {
             this.resize(arr.length * 2);
         }
