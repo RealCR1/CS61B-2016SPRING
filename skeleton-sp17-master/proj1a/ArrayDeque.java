@@ -93,7 +93,7 @@ public class ArrayDeque<Item> {
         //To check the size.
         //if it is full, double the size.
         if (size == arr.length) {
-            this.resize(arr.length * 2);
+            this.resize(arr.length * 2); 
         }
 
     }
