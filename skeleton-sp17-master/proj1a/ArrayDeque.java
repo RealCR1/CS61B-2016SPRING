@@ -86,7 +86,8 @@ public class ArrayDeque<Item> {
         }
         //Add the item to the present nextLast pointer.
         arr[nextLast] = item;
-        //
+        //After add an item to the last of the array.
+        //Pointer 'nextLast' should add one and then in the iteration of the length of array.
         nextLast = (nextLast + 1) % (this.arr.length - 1);
         
         size += 1;
