@@ -28,7 +28,7 @@ public class IntListTest {
     }
 
     @Test
-    public void testReverse(){
+    public void testReverse() {
         IntList L = IntList.list(1, 2, 3);
         IntList output = IntList.reverse(L);
         assertEquals(IntList.list(3, 2, 1), output);
@@ -42,7 +42,7 @@ public class IntListTest {
     }
 
     @Test
-    public void testReverseNull(){
+    public void testReverseNull() {
         IntList L = null;
         assertEquals(null, L);
     }
@@ -79,7 +79,7 @@ public class IntListTest {
 
     @Test
     public void testCatenate() {
-        IntList A = IntList.list(1,2,3);
+        IntList A = IntList.list(1, 2, 3);
         IntList B = IntList.list(4, 5, 6);
         IntList exp = IntList.list(1, 2, 3, 4, 5, 6);
         assertEquals(exp, IntList.catenate(A, B));
