@@ -103,6 +103,12 @@ public class IntList {
 
     }
 
+    /*Return the new IntList in destructive way.*/
+    public static IntList reverse(IntList L){
+        return null;
+
+    }
+
 
     /**
      * DO NOT MODIFY ANYTHING BELOW THIS LINE! Many of the concepts below here
@@ -221,5 +227,6 @@ public class IntList {
         out.format(")");
         return out.toString();
     }
+
 }
 
