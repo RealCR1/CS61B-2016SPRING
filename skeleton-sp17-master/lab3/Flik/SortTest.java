@@ -31,7 +31,7 @@ public class SortTest {
         String[] input = {"I", "have", "an", "egg"};
         String[] expected = {"an"};
 
-        int actual = Sort.findSmallest(input);
+
 
 
         org.junit.Assert.assertEquals(expected, input);
@@ -46,6 +46,7 @@ public class SortTest {
         }*/
 
     }
+
 
     public static void main(String[] args){
         testFindSmallest();
