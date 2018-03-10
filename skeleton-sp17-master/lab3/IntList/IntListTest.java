@@ -30,8 +30,8 @@ public class IntListTest {
     @Test
     public void testReverse(){
         IntList L = IntList.list(1, 2, 3);
-        IntList.reverse(L);
-        assertEquals(IntList.list(3, 2,1), L);
+        IntList output = IntList.reverse(L);
+        assertEquals(IntList.list(3, 2, 1), output);
     }
 
     @Test

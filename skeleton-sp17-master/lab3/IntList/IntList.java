@@ -93,7 +93,7 @@ public class IntList {
      * * elements of B.  May NOT modify items of A.  Use 'new'.
      */
     public static IntList catenate(IntList A, IntList B) {
-        if(A == null){
+        if(A == null) {
             return B;
         }
         IntList copyList = new IntList();
@@ -104,10 +104,30 @@ public class IntList {
     }
 
     /*Return the new IntList in destructive way.*/
-    public static IntList reverse(IntList L){
-        return null;
+    public static IntList reverse(IntList L) {
+        if(L == null) {
+            return null;
+        }
 
+        IntList newIntList = null;
+        IntList nextIntList = null;
+        while(L != null) {
+            nextIntList = L.rest;
+            L.rest = newIntList;
+            newIntList = L;
+            L = nextIntList;
+        }
+
+        return newIntList;
+/*
+        while (L.rest != null) {
+            newIntList.first = L.first;
+            L.first = L.rest.first;
+            newIntList.addFirst(L.rest.first);
+        }
+*/
     }
+
 
 
     /**
