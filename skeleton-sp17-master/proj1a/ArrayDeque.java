@@ -177,7 +177,8 @@ public class ArrayDeque<Item> {
         else if (nextFirst == arr.length - 1) {
                 indexIntArray = index;
             }
-        else{
+
+            else{
             if (index < arr.length - 1 - starter) {
                 indexIntArray = (starter + index) % (arr.length - 1);
             } else if (index == arr.length - 1 - starter) {
