@@ -25,25 +25,9 @@ public class ArrayDeque<Item> {
     //Try to create an ArrayDeque class constructor which has zero argument.
     //This will create an empty Deque.
     public ArrayDeque(){
-        arr = (Item) new object[INITIAL_CAPACITY];
+        arr = (Item[]) new Object[INITIAL_CAPACITY];
     }
 
-        public void addFirst(Item item) {
-        if (item == null) {
-            throw new NullPointerException();
-        }
-        arr[nextFirst] = item;
-        if (this.nextFirst == 0) {
-            nextFirst = this.arr.length - 1;
-        } else {
-            this.nextFirst -= 1;
-        }
-
-        size += 1;
-        if (size == arr.length) {
-            this.resize(arr.length * 2);
-        }
-    }
 
 
     //This method will add a item as the first element in ArrayDeque.
