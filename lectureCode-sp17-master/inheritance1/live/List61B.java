@@ -1,3 +1,6 @@
+/* Interface is a specification of what list is able to do
+*  Not how to do it.*/
+
 public interface List61B<Item> {
     /**
      * Inserts X into the back of the list.
