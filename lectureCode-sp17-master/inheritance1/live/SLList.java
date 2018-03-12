@@ -2,11 +2,11 @@
  * to a naked recursive data structure. */
 
 public class SLList<Blorp> implements List61B<Blorp> {
-	public class Node {
-		public Blorp item;     /* Equivalent of first */
-		public Node next; /* Equivalent of rest */
+	private class Node {
+		private Blorp item;     /* Equivalent of first */
+		private Node next; /* Equivalent of rest */
 
-		public Node(Blorp i, Node h) {
+		private Node(Blorp i, Node h) {
 			item = i;
 			next = h;		
 		}
@@ -124,7 +124,9 @@ public class SLList<Blorp> implements List61B<Blorp> {
 	}	
 
 
-	/** TODO: Add a print method that overrides List61B's inefficient print method. */
+	/** TODO: Add a print method that overrides List61B's inefficient print method.
+     *  Accessing each item using iteration over and over.
+     *  */
 	@Override
 	public void print() {
 		for (Node p = sentinel.next; p != null; p = p.next) {
