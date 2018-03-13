@@ -6,9 +6,18 @@ public class VengefulSLList<Item> extends SLList<Item> {
     public VengefulSLList() {
         super();
         deletedItems = new SLList<Item>();
+        /** The code below is same as it.
+         * But the all constructors must start with a call
+         * To one of the superclass's constructor.
+
+         public VengefulSLList() {
+                deletedItems = new SLList<Item>();
+        }*/
     }
 
     public VengefulSLList(Item x) {
+        //You must call the super, if not this method will follow the default constructor.
+        super(x);
         deletedItems = new SLList<Item>();
     }
 

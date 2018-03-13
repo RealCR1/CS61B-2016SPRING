@@ -1,8 +1,27 @@
 /** SList with additional operation printLostItems() which prints all items
   * that have ever been deleted. */
-public class VengefulSLList<Item> {
+public class VengefulSLList<Item> extends SLList<Item> {
+	SLList<Item> deletedItems;
+
+	public VengefulSLList() {
+		deletedItems = new SLList<Item>();
+	}
+
+	@Override
+	public Item removerLast() {
+		Item x = super.removerLast();
+		deletedItems.addLast(X);
+		return x;
+	}
+
+	/** Prints deleted items. */
+	public void printLostItems() {
+		deletedItems.print();
+	}
+
+
 	public static void main(String[] args) {
-		/*
+		
 		VengefulSLList<Integer> vs1 = new VengefulSLList<Integer>();
 		vs1.addLast(1);
 		vs1.addLast(5);
