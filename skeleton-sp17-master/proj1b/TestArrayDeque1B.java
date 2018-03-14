@@ -53,9 +53,17 @@ public class TestArrayDeque1B {
         }
 
         for(int j = 0; j < ads.size(); j++) {
-            assertEquals(sad.get(j), ads.get(j));
+            assertEquals("Oh no!This is bad:\n" +
+                            "The size of StudentArrayDeque isn't match!\n" +
+                            "The item in same index of StudentArrayDeque is " + sad.get(j) +
+                            " and the other is " + ads.get(j),
+                    sad.get(j), ads.get(j));
         }
 
-        assertEquals(ads.size(), sad.size());
+        assertEquals("Oh no!This is bad:\n" +
+                "The size of StudentArrayDeque isn't match!\n" +
+                "The size of StudentArrayDeque is " + sad.size() +
+                " and the other is " + ads.size(),
+                ads.size(), sad.size());
     }
 }
