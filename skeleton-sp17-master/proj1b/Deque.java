@@ -10,21 +10,20 @@ public interface Deque<Item> {
      **/
     Item removeLast();
     
-    /**
-     * Print each item of the ArrayDeque.
-     */
-    void printDeque();
-    
+    /** Add item to the ArrayDeque at first index.*/
     void addFirst(Item item);
     
+    /** Add item to the ArrayDeque at the last index. */
     void addLast(Item item);
     
+    /** Return the size of the ArrayDeque.*/
     int size();
     
+    /** Check the ArrayDeque is empty or not.*/
     boolean isEmpty();
     
+    /** Get the item at the specified index.*/
     Item get(int index);
-    
     
     }
     

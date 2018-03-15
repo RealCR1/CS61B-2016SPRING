@@ -198,5 +198,6 @@ public class ArrayDeque<Item> implements Deque<Item> {
 
         return arr[indexIntArray];
     }
+    
 }
 
