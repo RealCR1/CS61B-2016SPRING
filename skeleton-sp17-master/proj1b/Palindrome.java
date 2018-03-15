@@ -40,5 +40,4 @@ public class Palindrome {
         return isPalindrome(deque);
     }
     
-    
 }
