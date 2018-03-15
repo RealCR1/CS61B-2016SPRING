@@ -84,7 +84,6 @@ public class ArrayDeque<Item> implements Deque<Item> {
         if (size == arr.length) {
             this.resize(arr.length * 2);
         }
-
     }
 
 
