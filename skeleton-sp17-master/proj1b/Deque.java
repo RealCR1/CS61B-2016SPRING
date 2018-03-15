@@ -15,6 +15,16 @@ public interface Deque<Item> {
      */
     void printDeque();
     
+    void addFirst(Item item);
+    
+    void addLast(Item item);
+    
+    int size();
+    
+    boolean isEmpty();
+    
+    Item get(int index);
+    
     
     }
     

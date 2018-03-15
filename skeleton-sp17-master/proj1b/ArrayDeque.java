@@ -10,7 +10,7 @@
  */
 
 
-public class ArrayDeque<Item> {
+public class ArrayDeque<Item> implements Deque<Item> {
     private int size = 0;
     private int nextFirst = 0;
     private int nextLast = 1;
@@ -35,6 +35,7 @@ public class ArrayDeque<Item> {
     //The front pointer should loop back around to the end of the array.
     //So a circular array is a good idea.
     
+    @Override
     public void addFirst(Item item){
         //If item equals to null, there is nothing designate to pointer.
         //So occur an new NullPointerException() error.
@@ -66,6 +67,7 @@ public class ArrayDeque<Item> {
 
 
     //Adds an item to the back of the Deque.
+    @Override
     public void addLast(Item item) {
         if (item == null) {
             throw new NullPointerException();
@@ -101,12 +103,14 @@ public class ArrayDeque<Item> {
     }
 
     //Return the size of this ArrayDeque.
+    @Override
     public int size() {
         return size;
     }
 
 
     //Return True if ArrayDeque isn't empty.
+    @Override
     public boolean isEmpty() {
         return size == 0;
     }
@@ -116,6 +120,7 @@ public class ArrayDeque<Item> {
 
 
     //Removes and returns the first item of the Deque.
+    @Override
     public Item removeFirst() {
         if (size == 0) {
             return null;
@@ -143,6 +148,7 @@ public class ArrayDeque<Item> {
 
 
     //Removes and returns the item at the back of the Deque.
+    @Override
     public Item removeLast() {
         if (size == 0) {
             return null;
@@ -169,6 +175,7 @@ public class ArrayDeque<Item> {
     }
 
     //Get the item at the special index.
+    @Override
     public Item get(int index) {
         int indexIntArray;
         int starter = nextFirst + 1;
