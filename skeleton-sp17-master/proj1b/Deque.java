@@ -9,11 +9,6 @@ public interface Deque<Item> {
      * Remove the last item from the ArrayDeque.
      **/
     Item removeLast();
-
-    /**
-     * Using recursion way to get items.
-     * */
-    Item getRecursive(int i);
     
     /**
      * Print each item of the ArrayDeque.
