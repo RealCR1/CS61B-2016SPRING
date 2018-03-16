@@ -40,4 +40,21 @@ public class Palindrome {
         return isPalindrome(deque);
     }
     
+    /** Using the interface in CharacterComparator and OffByOne.*/
+    public static boolean isPalindrome(String word, CharacterComparator cc) {
+        Deque<Character> charFromWord = wordToDeque(word);
+        return isPalindrome(charFromWord, cc); 
+    }
+    
+    /** Helper method for isPalindrome(String word, CharacterComparator cc).*/
+    public static boolean isPalindrome(Deque<Character> deque, CharacterComparator cc) {
+        if (deque.size() == 0 || deque.size() == 1) {
+            return true;
+        }
+
+        char firstItem = deque.removeFirst();
+        char lastItem = deque.removeLast();
+        
+        return equalChars(firstItem, lastItem) && isPalindrome(deque, cc);
+    }
 }
