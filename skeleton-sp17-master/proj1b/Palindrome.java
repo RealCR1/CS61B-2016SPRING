@@ -4,12 +4,12 @@ public class Palindrome {
      *  appear in the same order as in the word.
      *  */
     public static Deque<Character> wordToDeque(String word) {
-        Deque<Character> wordToDeque = new ArrayDeque<>();
-        for (int i = 0; i <= word.length(); i++) {
-           char character = word.charAt(i);
-           wordToDeque.addLast(character);
+        Deque<Character> wordDeque = new ArrayDeque<>();
+        for (int i = 0; i < word.length(); i++) {
+            char ch = word.charAt(i);
+            wordDeque.addLast(ch);
         }
-       return wordToDeque; 
+       return wordDeque; 
     }
     
     /** The isPalindrome method should return true,
@@ -20,12 +20,11 @@ public class Palindrome {
         /** Before using this method to check
          *  We should change input into Deque.
          *  */
-        Deque<Character> wordToDeque = wordToDeque(word);
-        return isPalindrome(wordToDeque);
+        return isPalindrome(wordToDeque(word));
     }
     
     /** Define a method using the input format as Deque.*/
-    public static boolean isPalindrome(Deque<Character> deque) {
+    private static boolean isPalindrome(Deque<Character> deque) {
         if (deque.size() == 0 || deque.size() == 1) {
             return true;
         }
@@ -47,7 +46,7 @@ public class Palindrome {
     }
     
     /** Helper method for isPalindrome(String word, CharacterComparator cc).*/
-    public static boolean isPalindrome(Deque<Character> deque, CharacterComparator cc) {
+    private static boolean isPalindrome(Deque<Character> deque, CharacterComparator cc) {
         if (deque.size() == 0 || deque.size() == 1) {
             return true;
         }
