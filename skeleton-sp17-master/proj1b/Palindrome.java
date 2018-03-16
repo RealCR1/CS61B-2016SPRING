@@ -55,6 +55,6 @@ public class Palindrome {
         char firstItem = deque.removeFirst();
         char lastItem = deque.removeLast();
         
-        return equalChars(firstItem, lastItem) && isPalindrome(deque, cc);
+        return cc.equalChars(firstItem, lastItem) && isPalindrome(deque, cc);
     }
 }
