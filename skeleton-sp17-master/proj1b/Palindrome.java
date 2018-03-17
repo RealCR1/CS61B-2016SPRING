@@ -3,13 +3,13 @@ public class Palindrome {
      *  Build a Deque where the characters in the deque 
      *  appear in the same order as in the word.
      *  */
-    public static Deque<Character> wordToDeque(String word) {
+    private static Deque<Character> wordToDeque(String word) {
         Deque<Character> wordDeque = new ArrayDeque<>();
         for (int i = 0; i < word.length(); i++) {
             char ch = word.charAt(i);
             wordDeque.addLast(ch);
         }
-       return wordDeque; 
+        return wordDeque; 
     }
     
     /** The isPalindrome method should return true,
