@@ -5,7 +5,7 @@ public class Dog implements OurComparable<Dog>{
     private String name;
     private int size;
 
-    private Dog(String n, int s) {
+    public Dog(String n, int s) {
         name = n;
         size = s;
     }
