@@ -14,7 +14,7 @@ public class Problem2 {
         B.rest = t1;
         
         B = A.rest;
-        A = t1;*/
-    }
+        A = t1;
+    }*/
     
 }
