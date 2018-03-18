@@ -10,13 +10,13 @@ public class Problem1 {
         a.rest.rest = b;
         b.rest = c.rest;
         
-        IntList d = new IntList(9002, b.rest.rest);
+        IntList d = new IntList(9002, b.rest.rest);//9002, 9
         
-        System.out.println(d.rest.rest.rest.first);
-        System.out.println(a.rest.first);
+        System.out.println(d.rest.rest.rest.first);  //9
+        System.out.println(a.rest.first); // 7
         
-        c.rest.rest = c.rest;
+        c.rest.rest = c.rest; // 1 7 7 9
         
-        System.out.println(a.rest.rest.rest.rest.first);
+        System.out.println(a.rest.rest.rest.rest.first);  //7
     }
 }
