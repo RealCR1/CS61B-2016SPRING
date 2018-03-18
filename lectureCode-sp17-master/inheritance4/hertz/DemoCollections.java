@@ -10,7 +10,7 @@ public class DemoCollections {
 	/** Returns a lower case version of the string with
 	  * all characters except letters removed. */
     public static String cleanString(String s) {
-        return s.toLowerCase().replaceAll("[^a-z]", "null");
+        return s.toLowerCase().replaceAll("[^a-z]", "");
 	    /** [^a-z] to check if any characters except a-z.
          *  Same to check the A-Z expect a-z in file.
          *  So the method is to change all characters which isn't a-z into null.
@@ -34,7 +34,7 @@ public class DemoCollections {
 	/** Returns the count of the number of unique words in words. */
 	public static int countUniqueWords(List<String> words) {
 		Set<String> strWords = new HashSet<String>();
-		for (String ithWord : strWords) {
+		for (String ithWord : words) {
 		    strWords.add(ithWord);
         }
         return strWords.size();
@@ -49,8 +49,10 @@ public class DemoCollections {
         }
         
         for (String s : words) {
-		    int oldCount = counts.get(s);
-		    counts.put(s, oldCount + 1);
+		    if (counts.containsKey(s)) {
+                int oldCount = counts.get(s);
+                counts.put(s, oldCount + 1);
+            }
         }
         return counts;
 	}
