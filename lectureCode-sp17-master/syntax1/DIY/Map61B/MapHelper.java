@@ -44,7 +44,6 @@ public class MapHelper {
             }
         }
         return largest;
-        
     }
 
     @Test
