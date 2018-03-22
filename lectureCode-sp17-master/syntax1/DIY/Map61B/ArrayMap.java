@@ -57,6 +57,7 @@ public class ArrayMap<K, V> implements Map61B<K, V> {
             size += 1;
             return;
         }
+        //Find this key, and change the value which this key associated with.
         values[index] = value;
     }
 
@@ -77,13 +78,13 @@ public class ArrayMap<K, V> implements Map61B<K, V> {
         return newList;
     }
 
-    /*@Test
+    @Test
     public void test() {
         ArrayMap<Integer, Integer> am = new ArrayMap<Integer, Integer>();
-        am.put(2, 5);
-        int expected = 5;
-        assertEquals(expected, am.get(2));
-    }*/
+        am.put(2, 5); // Integer type
+        int expected = 5; // int type
+        assertEquals((Integer) expected, am.get(2));
+    }
 
     public static void main(String[] args) {
         ArrayMap<String, Integer> m = new ArrayMap<String, Integer>();
