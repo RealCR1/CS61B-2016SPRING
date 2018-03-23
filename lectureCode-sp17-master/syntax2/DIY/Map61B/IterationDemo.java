@@ -7,12 +7,11 @@ public class IterationDemo {
 
 		am.put("hello", 5);
 		am.put("syrups", 10);
-		
-		/*ArrayMap.KeyIterator ami =
-		   am.new KeyIterator();
 
+        //We need to initiate KeyIterator sub-class in ArrayMap.java
+        ArrayMap.KeyIterator ami = am.new KeyIterator(); //Must use am.new to instantiate nestclass.
 		while (ami.hasNext()) {
 		   System.out.println(ami.next());
-		}*/
+		}
     }
 }
