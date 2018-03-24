@@ -10,7 +10,7 @@ public class TestSans {
 
 		int[] expected = {1, 2, 4, 5};
 		int[] actual = sans(x, y);
-		assertEquals(expected, actual);
+		assertArrayEquals(expected, actual);
 	}
 
 	@Test
