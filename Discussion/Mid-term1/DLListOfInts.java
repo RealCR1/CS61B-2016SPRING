@@ -12,7 +12,11 @@ public class DLListOfInts implements ListOfInts {
 			return;
 		}
 		IntNode xPtr = x.sentinal.next;
-		for (IntNode p = sentinal.next; ) //Couldn't solve it.
-		
+		//Couldn't solve it.
+		//Based on solution from Internet.
+		for (IntNode p = sentinal.next; p != sentinal; p = p.next) {
+			p.item += xPtr.item;
+			xPtr = xPtr.next;
+		}
 	}
 }
