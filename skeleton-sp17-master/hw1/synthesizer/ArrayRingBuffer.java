@@ -18,8 +18,8 @@ public class ArrayRingBuffer extends AbstractBoundedQueue {
     /* Index for the next enqueue. */
     private int last;
     /* Array for storing the buffer data. */
-    private int[] rb;
-
+    private double[] rb;
+    
     /**
      * Create a new ArrayRingBuffer with the given capacity.
      */
@@ -34,7 +34,7 @@ public class ArrayRingBuffer extends AbstractBoundedQueue {
         this.fillCount = 0;
         this.capacity = capacity;
         
-        rb = new int[this.capacity];
+        rb = new double[this.capacity];
     }
 
     /**
@@ -42,7 +42,7 @@ public class ArrayRingBuffer extends AbstractBoundedQueue {
      * throw new RuntimeException("Ring buffer overflow"). Exceptions
      * covered Monday.
      */
-    public void enqueue(int x) {
+    public void enqueue(double x) {
         // TODO: Enqueue the item. Don't forget to increase fillCount and update last.
         if(isFull()) {
             throw new RuntimeException("Ring buffer overflow");
@@ -61,26 +61,26 @@ public class ArrayRingBuffer extends AbstractBoundedQueue {
      * throw new RuntimeException("Ring buffer underflow"). Exceptions
      * covered Monday.
      */
-    public int dequeue() {
+    public double dequeue() {
         // TODO: Dequeue the first item. Don't forget to decrease fillCount and update 
         if(isEmpty()) {
             throw new RuntimeException("Ring buffer underflow");
         }
-        int removedItem = rb[first];
-        rb[first] = 0;
+        double removedItem = rb[first];
+        rb[first] = 0.0;
         if(first == rb.length - 1) {
             first = 0;
         } else {
-            first += 1;
+            first -= 1;
         }
-        fillCount += 1;
+        fillCount -= 1;
         return removedItem;
     }
 
     /**
      * Return oldest item, but don't remove it.
      */
-    public int peek() {
+    public double peek() {
         // TODO: Return the first item. None of your instance variables should change.
         return rb[first];
     }
