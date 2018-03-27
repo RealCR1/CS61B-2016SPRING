@@ -2,8 +2,8 @@ package synthesizer;
 import java.util.Iterator;
 
 
-public interface  BoundedQueue extends Iterable {
-    int capcitity(); //Return size of the buffer.
+public interface BoundedQueue extends Iterable {
+    int capacity(); //Return size of the buffer.
     int fillCount(); //return number of items currently in the buffer.
     void enqueue(double x); // add item x to the end.
     double dequeue(); // delete and return item from the front.
@@ -16,6 +16,6 @@ public interface  BoundedQueue extends Iterable {
     
     // is the buffer full?
     default boolean isFull() {
-        return (this.fillCount() == this.capcitity());
+        return (this.fillCount() == this.capacity());
     }
 }
