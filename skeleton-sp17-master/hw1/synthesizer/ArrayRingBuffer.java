@@ -1,7 +1,14 @@
+
 // TODO: Make sure to make this class a part of the synthesizer package
 package synthesizer;
 
 import java.util.Iterator;
+
+/**
+ * @author Jonathan Wang
+ * Email: wz892477341@outlook.com
+ * Created on 3/26/2018
+ */
 
 //TODO: Make sure to make this class and all of its methods public
 //TODO: Make sure to make this class extend AbstractBoundedQueue<t>
@@ -37,6 +44,16 @@ public class ArrayRingBuffer extends AbstractBoundedQueue {
      */
     public void enqueue(int x) {
         // TODO: Enqueue the item. Don't forget to increase fillCount and update last.
+        if(isFull()) {
+            throw new RuntimeException("Ring buffer overflow");
+        }
+        rb[last] = x;
+        if(last == rb.length - 1) {
+            last = 0;
+        } else {
+            last += 1;
+        }
+        fillCount += 1;
     }
 
     /**
@@ -46,6 +63,18 @@ public class ArrayRingBuffer extends AbstractBoundedQueue {
      */
     public int dequeue() {
         // TODO: Dequeue the first item. Don't forget to decrease fillCount and update 
+        if(isEmpty()) {
+            throw new RuntimeException("Ring buffer underflow");
+        }
+        int removedItem = rb[first];
+        rb[first] = 0;
+        if(first == rb.length - 1) {
+            first = 0;
+        } else {
+            first += 1;
+        }
+        fillCount += 1;
+        return removedItem;
     }
 
     /**

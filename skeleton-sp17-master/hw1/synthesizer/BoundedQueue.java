@@ -2,7 +2,7 @@ package synthesizer;
 import java.util.Iterator;
 
 
-public interface BoundedQueue {
+public interface BoundedQueue extends Iterable{
     int capcitity(); //Return size of the buffer.
     int fillCount(); //return number of items currently in the buffer.
     void enqueue(int x); // add item x to the end.
