@@ -27,9 +27,9 @@ public abstract class AbstractBoundedQueue implements BoundedQueue {
         return fillCount() == capacity();
     }
     
-    public abstract T peak();
+    public abstract double peak();
     
-    public abstract T dequeue();
+    public abstract double dequeue();
     
-    public abstract void enqueue(T, x);
+    public abstract void enqueue(double x);
 }
