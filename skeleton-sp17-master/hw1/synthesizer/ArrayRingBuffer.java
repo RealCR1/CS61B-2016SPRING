@@ -86,6 +86,25 @@ public class ArrayRingBuffer extends AbstractBoundedQueue {
     }
 
     // TODO: When you get to part 5, implement the needed code to support iteration.
-    
-    
+    // Now ArrayRingBuffer.java still has some bugs, we need to write code to support iteration.
+    public class doubleIterator implements Iterator {
+        private int index;
+
+        @Override
+        public boolean hasNext() {
+            return index != rb.length - 1;
+        }
+
+        @Override
+        public Double next() {
+            double numberReturn = rb[index];
+            index += 1;
+            return numberReturn;
+        }
+    }
+        
+        @Override
+        public Iterator iterator() {
+            return new doubleIterator();
+        }
 }
