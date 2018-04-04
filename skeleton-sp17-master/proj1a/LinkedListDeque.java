@@ -1,13 +1,13 @@
-public class LinkedListDeque<Item>{
+public class LinkedListDeque<Item> {
 
     //Using the normal way, instantiate nested class Node.
-    private class Node{
+    private class Node {
         private Item item;
         //Make a circular LinkedList.
         private Node pre, next;
 
         //Class constructor.
-        public Node(Item i, Node p, Node n){
+        public Node(Item i, Node p, Node n) {
             this.item = i;
             this.pre = p;
             this.next = n;
@@ -20,7 +20,7 @@ public class LinkedListDeque<Item>{
 
 
     //Create an empty linked list.
-    public LinkedListDeque(){
+    public LinkedListDeque() {
         this.sentinal = new Node(null, null, null );
         this.sentinal.next = this.sentinal;
         this.sentinal.pre = this.sentinal;
