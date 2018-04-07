@@ -32,9 +32,20 @@ public class ArrayDeque<Item> {
 		if (size == arr.length) {
 			this.resize(arr.length * 2);
 		}
-
-
-
 	}
 
+	public void addLast(Item item) {
+		if (item == null) {
+			throw new NullPointerException();
+		}
+
+		arr[nextLast] = item;
+		nextLast = (nextLast + 1) % (this.arr.length - 1);
+
+		size += 1;
+
+		if (size == arr.length) {
+			this.resize(arr.length * 2);
+		}
+	}
 }
