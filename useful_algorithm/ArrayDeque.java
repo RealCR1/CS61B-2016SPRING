@@ -69,4 +69,28 @@ public class ArrayDeque<Item> {
 		nextFirst = number - 1;
 		nextLast = n;
 	}
+
+	public Item removeFirst() {
+		if (size == 0) {
+			return null;
+		}
+		Item item;
+		if (nextFirst == arr.length - 1) {
+			item = (Item) arr[0];
+			arr[0] = null;
+			nextFirst = 0;
+		} else {
+			item = (Item) arr[nextFirst + 1];
+			arr[nextFirst + 1] = null;
+			nextFirst -= 1;
+		}
+
+		size -= 1;
+
+		if (size == arr.length / 4 && size == 0 && arr.length >= 16) {
+			this.resize(arr.length / 2);
+		}
+
+		return item;
+	}
 }
