@@ -48,4 +48,25 @@ public class ArrayDeque<Item> {
 			this.resize(arr.length * 2);
 		}
 	}
+
+	public boolean isEmpty() {
+		return size == 0;
+	}
+
+	public int size() {
+		return size;
+	}
+
+	public void resize(int number) {
+		int n = arr.length;
+		Item[] new_arr = (Item[]) new Object[number];
+		int pointer = 0;
+		while (arr[pointer] == null) {
+			pointer += 1;
+		}
+		System.arraycopy(this.arr, pointer, new_arr, 0, size));
+		arr = new_arr;
+		nextFirst = number - 1;
+		nextLast = n;
+	}
 }
